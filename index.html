@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LIDER EINKAUFSPARADIES - Ihr Supermarkt für Qualität und Frische in Berlin-Tegel. Besuchen Sie uns in der Brunowstr. 10.">
+    <meta name="description" content="LIDER EINKAUFSPARADIES - Ihr Fachgeschäft in Berlin-Tegel für Mode, Wolle, Haushaltswaren, Fahrradzubehör und mehr. Brunowstr. 10.">
     <title>LIDER EINKAUFSPARADIES | Berlin</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,16 +21,25 @@
 
     <!-- Header -->
     <header>
+        <div class="announcement-bar">
+            <span><strong>ANGEBOT DER WOCHE:</strong> 20% Rabatt auf alle Woll-Artikel! 🧶</span>
+            <button class="close-announcement" aria-label="Schließen">&times;</button>
+        </div>
         <div class="container">
             <nav>
                 <div class="logo">LIDER EINKAUFSPARADIES</div>
                 <ul class="nav-links">
                     <li><a href="#home">Startseite</a></li>
-                    <li><a href="#angebote">Angebote</a></li>
-                    <li><a href="#ueber-uns">Über uns</a></li>
+                    <li><a href="#neuheiten">Neuheiten</a></li>
+                    <li><a href="#sortiment">Sortiment</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
                 <a href="#kontakt" class="cta-button">Anfahrt</a>
+                <div class="hamburger">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </div>
             </nav>
         </div>
     </header>
@@ -35,34 +47,91 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-content">
-            <h1>Willkommen im Einkaufsparadies</h1>
-            <p>Frische Lebensmittel, internationale Spezialitäten und beste Qualität direkt in Berlin-Tegel.</p>
-            <a href="#kontakt" class="cta-button cta-accent">Besuchen Sie uns</a>
+            <h1>Ihr Fachgeschäft in Tegel</h1>
+            <p>Von Damenmode und Wolle bis zu Haushaltsgeräten und Werkzeug – bei uns finden Sie fast alles.</p>
+            <a href="#neuheiten" class="cta-button cta-accent">Zu den Neuheiten</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="ueber-uns" class="features">
+    <!-- Neuheiten Section -->
+    <section id="neuheiten" class="news-section">
         <div class="container">
             <div class="section-title">
-                <h2>Warum LIDER?</h2>
-                <p>Qualität, die man schmeckt. Preise, die man liebt.</p>
+                <h2>Aktuelle Neuheiten</h2>
+                <p>Das ist neu bei uns eingetroffen.</p>
+            </div>
+            
+            <div class="news-grid">
+                <!-- Eintrag 1 -->
+                <article class="news-card">
+                    <!-- Bild hier einfügen: Pfad anpassen zu Ihrem Bild -->
+                    <img src="assets/images/wolle.jpg" alt="Neue Winterwolle" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">Aktuell</div>
+                        <h3>Neue Winterwolle</h3>
+                        <p>Wir haben eine große Lieferung neuer Wolle erhalten. Viele Farben und Qualitäten jetzt verfügbar!</p>
+                    </div>
+                </article>
+
+                <!-- Eintrag 2 -->
+                <article class="news-card">
+                    <!-- Falls kein Bild vorhanden ist, einfach das img weglassen -->
+                    <div class="news-content">
+                        <div class="news-date">Neu</div>
+                        <h3>Damenmode Kollektion</h3>
+                        <p>Entdecken Sie unsere neuen Oberteile und Hosen für die kommende Saison.</p>
+                    </div>
+                </article>
+
+                <!-- Eintrag 3 -->
+                <article class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">Info</div>
+                        <h3>Jugendfeuerwerk</h3>
+                        <p>Ganzjährig führen wir eine Auswahl an Jugendfeuerwerk und Partyartikeln.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sortiment Section -->
+    <section id="sortiment" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Unser Sortiment</h2>
+                <p>Alles was Sie für Haushalt, Hobby und Alltag brauchen.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🍎</div>
-                    <h3>Täglich Frisch</h3>
-                    <p>Unser Obst und Gemüse wird täglich frisch geliefert, um Ihnen die beste Qualität zu garantieren.</p>
+                    <div class="feature-icon">👗</div>
+                    <h3>Textilien & Mode</h3>
+                    <p>Modische Frauenbekleidung, Tischdecken und Heimtextilien in großer Auswahl.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🥩</div>
-                    <h3>Fleischtheke</h3>
-                    <p>Hochwertige Fleischwaren und fachkundige Beratung an unserer großen Frischetheke.</p>
+                    <div class="feature-icon">🧶</div>
+                    <h3>Wolle & Handarbeit</h3>
+                    <p>Ein Paradies für Strickfans: Wolle, Garne und Zubehör für Ihr nächstes Projekt.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Internationale Vielfalt</h3>
-                    <p>Entdecken Sie Spezialitäten aus aller Welt direkt hier in der Brunowstraße.</p>
+                    <div class="feature-icon">🚲</div>
+                    <h3>Fahrrad & Werkzeug</h3>
+                    <p>Fahrradzubehör, Werkzeuge, Batterien und alles für kleine Reparaturen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Haushalt & Elektro</h3>
+                    <p>Kleingeräte, Glühlampen (LED & Alt), Lichterketten und Haushaltswaren.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Büro & Geschenke</h3>
+                    <p>Schreibwaren, Postkarten, Geschenktüten und nette Kleinigkeiten.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎆</div>
+                    <h3>Saisonales</h3>
+                    <p>Jugendfeuerwerk, saisonale Deko und vieles mehr.</p>
                 </div>
             </div>
         </div>
@@ -109,13 +178,20 @@
         <div class="container">
             <div class="footer-content">
                 <h3>LIDER EINKAUFSPARADIES</h3>
-                <p>Ihr lokaler Partner für frische Lebensmittel.</p>
+                <p>Ihr Fachgeschäft in der Brunowstraße.</p>
             </div>
             <div class="copyright">
                 &copy; 2024 LIDER EINKAUFSPARADIES. Alle Rechte vorbehalten.
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal (Versteckt) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Großansicht">
+        <div id="lightbox-caption"></div>
+    </div>
 
     <!-- Verknüpfung zum JavaScript -->
     <script src="assets/js/main.js"></script>

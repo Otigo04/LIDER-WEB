@@ -53,6 +53,42 @@ header {
     z-index: 1000;
 }
 
+.announcement-bar {
+    background-color: var(--secondary-color);
+    color: #333;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 40px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.5s ease;
+    max-height: 80px; /* Genug Platz für den Text */
+    opacity: 1;
+    overflow: hidden;
+}
+
+/* Zustand, wenn das Banner geschlossen ist */
+.announcement-bar.closed {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.close-announcement {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -110,18 +146,34 @@ nav {
     color: #333;
 }
 
+/* Hamburger Menu (Desktop: versteckt) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
 /* --- Hero Section --- */
 .hero {
     height: 100vh;
     /* Hinweis: Wenn Sie ein lokales Bild haben, ändern Sie die URL zu '../images/hero-bg.jpg' */
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     text-align: center;
     color: var(--white);
-    margin-top: 80px;
+    margin-top: 125px; /* Angepasst für Header (80px) + Banner (ca. 45px) */
+    transition: margin-top 0.5s ease;
 }
 
 .hero-content h1 {
@@ -136,6 +188,57 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* --- News Section (Neuheiten) --- */
+.news-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background: var(--light-bg);
+    padding: 0; /* Padding entfernt, damit das Bild bis zum Rand geht */
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    transition: var(--transition);
+    overflow: hidden; /* Wichtig, damit das Bild die abgerundeten Ecken nicht überdeckt */
+}
+
+.news-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Neue Klassen für Bilder in den News */
+.news-image {
+    width: 100%;
+    height: 200px; /* Einheitliche Höhe für alle Bilder */
+    object-fit: cover; /* Bild wird zugeschnitten, nicht verzerrt */
+    cursor: pointer; /* Zeigt an, dass das Bild klickbar ist */
+}
+
+.news-content {
+    padding: 30px; /* Padding jetzt hier für den Text */
+}
+
+.news-date {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.news-card h3 {
+    margin-bottom: 10px;
 }
 
 /* --- Features Section --- */
@@ -239,11 +342,110 @@ footer {
         font-size: 2.5rem;
     }
     
+    /* Mobile Navigation */
     .nav-links {
-        display: none; 
+        position: absolute;
+        right: 0;
+        top: 100%; /* Direkt unter dem Header */
+        height: 92vh;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Volle Breite auf Handy */
+        transform: translateX(100%); /* Standardmäßig rechts versteckt */
+        transition: transform 0.3s ease-in;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding-top: 30px;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%); /* Menü einblenden */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 1;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+
+    /* Animation zum X */
+    .hamburger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger.toggle .line2 {
+        opacity: 0;
+    }
+    .hamburger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
     
     .location-container {
         flex-direction: column;
     }
+}
+
+/* --- Lightbox (Bildergalerie) --- */
+.lightbox {
+    display: none; /* Standardmäßig versteckt */
+    position: fixed;
+    z-index: 2000; /* Über dem Header (1000) */
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Dunkler Hintergrund */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    object-fit: contain;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Bildunterschrift in der Lightbox */
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 10px;
 }
