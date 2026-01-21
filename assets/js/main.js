@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Öffnungszeiten: Aktuellen Tag hervorheben
+    const day = new Date().getDay(); // 0 = Sonntag, 1 = Montag, ..., 6 = Samstag
+    let activeRowId = '';
+
+    if (day >= 1 && day <= 5) {
+        activeRowId = 'hours-weekday'; // Mo - Fr
+    } else if (day === 6) {
+        activeRowId = 'hours-saturday'; // Samstag
+    } else if (day === 0) {
+        activeRowId = 'hours-sunday'; // Sonntag
+    }
+
+    if (activeRowId) {
+        const activeRow = document.getElementById(activeRowId);
+        if (activeRow) {
+            activeRow.classList.add('today-highlight');
+            // Optional: Kleinen Text "(Heute)" an die Uhrzeit anhängen
+            const timeCell = activeRow.cells[1];
+            if (timeCell) timeCell.innerHTML += ' <span style="font-size:0.8em;">(Heute)</span>';
+        }
+    }
+
     // Hamburger Menü Logik
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -78,6 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === lightbox) {
                 lightbox.style.display = "none";
             }
+        });
+    }
+
+    // Back to Top Button Logik
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 });

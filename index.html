@@ -12,7 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Verknüpfung zum CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -27,7 +27,7 @@
         </div>
         <div class="container">
             <nav>
-                <div class="logo">LIDER EINKAUFSPARADIES</div>
+                <a href="#home" class="logo">LIDER EINKAUFSPARADIES</a>
                 <ul class="nav-links">
                     <li><a href="#home">Startseite</a></li>
                     <li><a href="#neuheiten">Neuheiten</a></li>
@@ -35,6 +35,10 @@
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
                 <a href="#kontakt" class="cta-button">Anfahrt</a>
+                
+                <!-- Mobile Call Button (Nur auf Handy sichtbar) -->
+                <a href="tel:+49123456789" class="mobile-call-btn" aria-label="Jetzt anrufen">📞</a>
+
                 <div class="hamburger">
                     <span class="line1"></span>
                     <span class="line2"></span>
@@ -65,10 +69,10 @@
                 <!-- Eintrag 1 -->
                 <article class="news-card">
                     <!-- Bild hier einfügen: Pfad anpassen zu Ihrem Bild -->
-                    <img src="assets/images/wolle.jpg" alt="Neue Winterwolle" class="news-image">
+                    <img src="assets/images/wolle1.png" alt="Neue Winterwolle" class="news-image">
                     <div class="news-content">
-                        <div class="news-date">Aktuell</div>
-                        <h3>Neue Winterwolle</h3>
+                        <div class="news-date">Aktuell (19.01.2026)</div>
+                        <h3>Neue Winterwolle eingetroffen!</h3>
                         <p>Wir haben eine große Lieferung neuer Wolle erhalten. Viele Farben und Qualitäten jetzt verfügbar!</p>
                     </div>
                 </article>
@@ -151,7 +155,20 @@
                     </div>
                     <div class="info-item">
                         <h3>Öffnungszeiten</h3>
-                        <p>Mo - Sa: 08:00 - 20:00 Uhr<br>So: Geschlossen</p>
+                        <table class="opening-hours-table">
+                            <tr id="hours-weekday">
+                                <td>Mo - Fr:</td>
+                                <td>08:00 - 18:30 Uhr</td>
+                            </tr>
+                            <tr id="hours-saturday">
+                                <td>Sa:</td>
+                                <td>09:00 - 15:00 Uhr</td>
+                            </tr>
+                            <tr id="hours-sunday">
+                                <td>So:</td>
+                                <td>Geschlossen</td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="info-item">
                         <h3>Kontakt</h3>
@@ -192,6 +209,9 @@
         <img class="lightbox-content" id="lightbox-img" alt="Großansicht">
         <div id="lightbox-caption"></div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Nach oben">↑</button>
 
     <!-- Verknüpfung zum JavaScript -->
     <script src="assets/js/main.js"></script>
